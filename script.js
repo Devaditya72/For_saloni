@@ -16,6 +16,7 @@ const SUCCESS_HIDE_MS = 3000;
 const maxNoClicks = 5;
 let noClicks = 0;
 
+// ✅ Using .jpeg images
 const goofyPhotos = [
   { src: "assets/her1.jpeg", msg: "Oops… Wrong Button 😭👉 Try Again 💞" },
   { src: "assets/her2.jpeg", msg: "No?! Excuse Me?! 😤💘 Try Again 😈" },
@@ -25,7 +26,7 @@ const goofyPhotos = [
 ];
 
 function growYesButton() {
-  // Increase real size instead of only transform (prevents overlap)
+  // ✅ REAL growth (padding + font) so it DOES NOT cover the text above
   const newFont = 22 + noClicks * 2;
   const newPadY = 12 + noClicks * 2;
   const newPadX = 30 + noClicks * 6;
@@ -33,11 +34,9 @@ function growYesButton() {
   yesBtn.style.fontSize = newFont + "px";
   yesBtn.style.padding = `${newPadY}px ${newPadX}px`;
 
-  // subtle glow instead of scale overlay
+  // cute glow ✨
   yesBtn.style.boxShadow = `0 0 ${14 + noClicks * 6}px rgba(54, 211, 153, 0.45)`;
 }
-
-
 
 function showGoofy(index) {
   mediaArea.classList.remove("hidden");
@@ -62,13 +61,12 @@ noBtn.addEventListener("click", () => {
     noClicks++;
     growYesButton();
 
-    // After 5 NOs, disable NO 😇
     if (noClicks === maxNoClicks) {
       noBtn.disabled = true;
       noBtn.textContent = "No (Disabled 😇)";
       noBtn.style.opacity = "0.65";
       noBtn.style.cursor = "not-allowed";
-      pleaText.textContent += "  ✅ Now Press Yes 😌💚";
+      pleaText.textContent += " ✅ Now Press Yes 😌💚✨";
     }
   }
 });
@@ -78,11 +76,11 @@ yesBtn.addEventListener("click", () => {
 
   finalArea.classList.remove("hidden");
   yesGif.src = "assets/gif_yes.gif";
-  finalText.textContent = "YAAAAY!! Valentine Secured 💘🥳🎉";
+  finalText.textContent = "YAAAAY!! Valentine Secured 💘🥳🎉✨";
 
   buttons.classList.add("hidden");
 
-  // Show Success Box
+  // 🎉 Success box
   showSuccessBoxThenAutoHide();
 
   document.title = "She Said YES 💖";
