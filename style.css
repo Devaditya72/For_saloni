@@ -64,13 +64,13 @@ body{
   line-height: 1.4;
 }
 
-/* ===== Buttons ===== */
 .buttons{
-  margin-top: 18px;
+  margin-top: 28px;          /* More base gap */
   display: flex;
-  gap: 14px;
+  gap: 18px;
   justify-content: center;
   flex-wrap: wrap;
+  min-height: 80px;          /* Prevent overlap when button grows */
 }
 
 .btn{
