@@ -25,13 +25,18 @@ const goofyPhotos = [
 ];
 
 function growYesButton() {
-  // Each NO makes YES bigger 💪
-  const scale = 1 + noClicks * 0.23;
-  yesBtn.style.transform = `scale(${scale})`;
+  // Increase real size instead of only transform (prevents overlap)
+  const newFont = 22 + noClicks * 2;
+  const newPadY = 12 + noClicks * 2;
+  const newPadX = 30 + noClicks * 6;
+
+  yesBtn.style.fontSize = newFont + "px";
+  yesBtn.style.padding = `${newPadY}px ${newPadX}px`;
+
+  // subtle glow instead of scale overlay
   yesBtn.style.boxShadow = `0 0 ${14 + noClicks * 6}px rgba(54, 211, 153, 0.45)`;
-  yesBtn.style.fontSize = `${22 + noClicks * 2}px`;
-  yesBtn.style.padding = `${12 + noClicks * 2}px ${30 + noClicks * 6}px`;
 }
+
 
 function showGoofy(index) {
   mediaArea.classList.remove("hidden");
