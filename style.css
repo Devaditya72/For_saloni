@@ -65,7 +65,7 @@ body{
 }
 
 .buttons{
-  margin-top: 28px;          /* More base gap */
+  margin-top: 50px;          /* More base gap */
   display: flex;
   gap: 18px;
   justify-content: center;
