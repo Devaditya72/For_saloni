@@ -38,6 +38,7 @@ function growYesButton() {
 }
 
 
+
 function showGoofy(index) {
   mediaArea.classList.remove("hidden");
   finalArea.classList.add("hidden");
